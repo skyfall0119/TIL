@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: wait_queue_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level warning
+
+  redis:
+    image: redis:7
+    container_name: wait_queue_redis
+    # command: ["redis-server", "--notify-keyspace-events", "Ex"]
+    ports:
+      - "6379:6379"
