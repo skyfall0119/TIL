@@ -1,0 +1,43 @@
+### 네트워크 관련 명령어
+- ping 네트워크 연결을 확인하는 명령어
+    - c : 요청수
+    - i : 초
+    - s : 패킷크기
+    - 예: ping -c 5 -s 32 ip
+- traceroute : 목적지 호스트까지의 경로를 표시하며, 그 구간의 정보를 기록하는 명령어
+    - 목적지 호스트까지의 패킷 전송 지역을 측정.
+    - 목적지로 향하는 경로상 장애가 있는 경우 위치파악 가능
+- nslookup 도메인명으로 ip 조회, 또는 ip 로 도메인 조회
+    - dns 서버의 주소는 /etc/resolv.conf 에 저장됨
+    - type=A (호스트 ip 주소)
+    - type=NS (도메인 네임서버 정보)
+- dig : domain information groper
+    - nslookup 과 유사. 호스트명으로 ip 조회, ip 로 호스트명 조회
+    - @ 특정 네임서버를 선택해 질의 가능 (dig @8.8.8.8 www.naver.com)
+    - trace 옵션을 통해서 root 부터 질의한 도메인서버까지 흐름 확인 가능
+- host : 호스트명을 알고 있는데 그 반대 경우 사용
+    - host www.naver.com
+- hostname : 시스템 이름을 확인하거나 변경 가능
+### 시스템 종료 명령어
+- shutdown : 시스템 종료
+    - r 종료후 재부팅
+    - h 시스템 종료
+    - shutdown -r now...
+- init : shutdown 과 동일함
+    - 0 ~ 6 런레벨 
+    - init 0 종료
+    - init 6 재부팅
+- reboot 재부팅
+- halt: 시스템을 종료하는 명령어
+### 기타 명령어
+- cal 달력 출력
+- date 시스템 날짜 시간 표시
+- clear
+- tty 현재 사용하고 있는 단말기 경로 파일명
+- time
+    - 프로그램이 수행되는데 걸리는 시간을 측정
+    - real 총 수행시간
+    - user 유저가 사용자 영역에서 보낸 시간
+    - sys 시스템 호출실행에 걸린 시간
+- wall 모든 로그인된 사용자들에게 터미널을 통해 메세지 전달
+- write  해당 사용자에게 메세지를 사용하는 명령어
